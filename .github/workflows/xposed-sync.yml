@@ -1,0 +1,49 @@
+name: xposed-sync
+
+on:
+  schedule:
+    - cron: '0 1 * * *'   # daily ~01:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch upstream modules.json
+        shell: bash
+        run: |
+          set -u
+          echo "Trying backup source..."
+          if curl -fsSL --max-time 90 -o /tmp/new.json https://backup.modules.lsposed.org/modules.json; then
+            echo "OK: backup source"
+          else
+            echo "backup failed, falling back to modules.lsposed.org"
+            if curl -fsSL --max-time 90 -o /tmp/new.json https://modules.lsposed.org/modules.json; then
+              echo "OK: primary source"
+            else
+              echo "::error::both sources unreachable"
+              exit 1
+            fi
+          fi
+          python -c "import json,sys; d=json.load(open('/tmp/new.json')); print('entries:', len(d))"
+
+      - name: Compare and commit if changed
+        shell: bash
+        run: |
+          set -u
+          if ! cmp -s /tmp/new.json modules.json; then
+            echo "Change detected, updating modules.json"
+            cp /tmp/new.json modules.json
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add modules.json
+            git commit -m "chore(xposed): sync modules.json from upstream [skip ci]"
+            git push
+          else
+            echo "No changes, skip commit"
+          fi
