@@ -1,0 +1,86 @@
+name: enrich-sync
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: pip install requests
+      - name: Run enrich
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p enrich
+          python3 << 'PYEOF'
+          import json, os, time, requests
+
+          token = os.environ["GITHUB_TOKEN"]
+          headers = {"Authorization": f"token {token}", "User-Agent": "ShizuSU-Enrich"}
+
+          with open("modules.json", "r", encoding="utf-8-sig") as f:
+              modules = json.load(f)
+
+          print(f"Total modules: {len(modules)}")
+
+          for i, mod in enumerate(modules):
+              pkg = mod.get("name", "")
+              if not pkg:
+                  continue
+              out = {}
+              # issues
+              try:
+                  r = requests.get(f"https://api.github.com/repos/Xposed-Modules-Repo/{pkg}", headers=headers, timeout=30)
+                  if r.ok:
+                      out["openIssues"] = r.json().get("open_issues_count", 0)
+              except Exception as e:
+                  print(f"  {pkg} repo FAIL: {e}")
+              time.sleep(0.3)
+              # releases (changelog body)
+              try:
+                  r = requests.get(f"https://api.github.com/repos/Xposed-Modules-Repo/{pkg}/releases?per_page=30", headers=headers, timeout=30)
+                  if r.ok:
+                      releases = r.json()
+                      out["changelog"] = [
+                          {"tagName": rel.get("tag_name",""), "body": rel.get("body","")}
+                          for rel in releases
+                      ]
+              except Exception as e:
+                  print(f"  {pkg} releases FAIL: {e}")
+              time.sleep(0.3)
+              # contributors
+              try:
+                  r = requests.get(f"https://api.github.com/repos/Xposed-Modules-Repo/{pkg}/contributors?per_page=30", headers=headers, timeout=30)
+                  if r.ok:
+                      out["contributors"] = [c.get("login","") for c in r.json()]
+              except Exception as e:
+                  print(f"  {pkg} contributors FAIL: {e}")
+              time.sleep(0.3)
+
+              with open(f"enrich/{pkg}.json", "w", encoding="utf-8") as f:
+                  json.dump(out, f, ensure_ascii=False)
+
+              if (i+1) % 50 == 0:
+                  print(f"Processed {i+1}/{len(modules)}")
+
+          print("Done")
+          PYEOF
+      - name: Commit
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add enrich/
+          git diff --cached --quiet || git commit -m "chore: enrich sync $(date -u +%Y-%m-%d)"
+          git push
