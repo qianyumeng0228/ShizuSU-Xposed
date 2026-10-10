@@ -1,1 +1,1 @@
-{"openIssues": 0, "changelog": [{"tagName": "1-1.0", "body": "hello lspoesd"}], "contributors": ["LAOBILAXI233"], "readme": "hook模块以修复mipush 带来的 反序列化异常 导致的崩溃\n"}
+{"openIssues": 0, "changelog": [{"tagName": "1-1.0", "name": "v1.0", "createdAt": "2025-12-10T13:23:06Z", "body": "hello lspoesd", "assets": [{"name": "app-release.apk", "downloadUrl": "https://github.com/Xposed-Modules-Repo/com.n8.xmsflogbypass/releases/download/1-1.0/app-release.apk", "size": 664555, "downloadCount": 673}]}], "contributors": ["LAOBILAXI233"], "readme": "hook模块以修复mipush 带来的 反序列化异常 导致的崩溃\n"}

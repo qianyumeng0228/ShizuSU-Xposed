@@ -1,1 +1,1 @@
-{"openIssues": 1, "changelog": [{"tagName": "1-1.0.0", "body": ""}], "contributors": ["tehcneko"], "readme": "# MIUI 通知修复\n禁用 MIUI 通知白名单\n"}
+{"openIssues": 1, "changelog": [{"tagName": "1-1.0.0", "name": "v1.0.0", "createdAt": "2022-11-26T11:28:42Z", "body": "", "assets": [{"name": "app-release.apk", "downloadUrl": "https://github.com/Xposed-Modules-Repo/io.github.tehcneko.miuinotificationfix/releases/download/1-1.0.0/app-release.apk", "size": 9573, "downloadCount": 4767}]}], "contributors": ["tehcneko"], "readme": "# MIUI 通知修复\n禁用 MIUI 通知白名单\n"}

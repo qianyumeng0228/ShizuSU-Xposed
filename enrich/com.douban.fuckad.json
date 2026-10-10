@@ -1,1 +1,1 @@
-{"openIssues": 0, "changelog": [{"tagName": "1-1.0", "body": ""}], "contributors": ["fqzhanghao"], "readme": "屏蔽豆瓣APP的绝大部分内嵌广告"}
+{"openIssues": 0, "changelog": [{"tagName": "1-1.0", "name": "v1.0.0", "createdAt": "2023-08-09T04:26:20Z", "body": "", "assets": [{"name": "app-release.apk", "downloadUrl": "https://github.com/Xposed-Modules-Repo/com.douban.fuckad/releases/download/1-1.0/app-release.apk", "size": 3640950, "downloadCount": 5310}]}], "contributors": ["fqzhanghao"], "readme": "屏蔽豆瓣APP的绝大部分内嵌广告"}

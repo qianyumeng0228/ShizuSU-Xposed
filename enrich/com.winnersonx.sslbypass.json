@@ -1,1 +1,1 @@
-{"openIssues": 0, "changelog": [{"tagName": "1-1.0", "body": ""}], "contributors": ["errorman-awful"]}
+{"openIssues": 0, "changelog": [{"tagName": "1-1.0", "name": "SSL pinning bypass", "createdAt": "2025-11-22T18:02:47Z", "body": "", "assets": [{"name": "SSLBypass.apk", "downloadUrl": "https://github.com/Xposed-Modules-Repo/com.winnersonx.sslbypass/releases/download/1-1.0/SSLBypass.apk", "size": 3298787, "downloadCount": 6381}]}], "contributors": ["errorman-awful"]}
