@@ -48,15 +48,32 @@ jobs:
               except Exception as e:
                   print(f"  {pkg} repo FAIL: {e}")
               time.sleep(0.3)
-              # releases (changelog body)
+              # releases (changelog body + assets metadata)
               try:
                   r = requests.get(f"https://api.github.com/repos/Xposed-Modules-Repo/{pkg}/releases?per_page=30", headers=headers, timeout=30)
                   if r.ok:
                       releases = r.json()
-                      out["changelog"] = [
-                          {"tagName": rel.get("tag_name",""), "body": rel.get("body","")}
-                          for rel in releases
-                      ]
+                      changelog_list = []
+                      for rel in releases:
+                          entry = {
+                              "tagName": rel.get("tag_name", ""),
+                              "name": rel.get("name", ""),
+                              "createdAt": rel.get("created_at", ""),
+                              "body": rel.get("body", ""),
+                          }
+                          # Extract first APK asset
+                          assets = rel.get("assets", [])
+                          for a in assets:
+                              if a.get("name", "").endswith(".apk"):
+                                  entry["assets"] = [{
+                                      "name": a.get("name", ""),
+                                      "downloadUrl": a.get("browser_download_url", ""),
+                                      "size": a.get("size", 0),
+                                      "downloadCount": a.get("download_count", 0),
+                                  }]
+                                  break
+                          changelog_list.append(entry)
+                      out["changelog"] = changelog_list
               except Exception as e:
                   print(f"  {pkg} releases FAIL: {e}")
               time.sleep(0.3)
