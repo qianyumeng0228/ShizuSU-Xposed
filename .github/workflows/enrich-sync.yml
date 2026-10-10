@@ -68,6 +68,24 @@ jobs:
               except Exception as e:
                   print(f"  {pkg} contributors FAIL: {e}")
               time.sleep(0.3)
+              # README (from Xposed-Modules-Repo mirror repo)
+              readme = None
+              for branch in ["main", "master"]:
+                  try:
+                      r = requests.get(
+                          f"https://raw.githubusercontent.com/Xposed-Modules-Repo/{pkg}/{branch}/README.md",
+                          headers={"User-Agent": "ShizuSU-Enrich"},
+                          timeout=15
+                      )
+                      if r.ok and r.text.strip():
+                          readme = r.text
+                          break
+                  except Exception:
+                      pass
+              if readme:
+                  out["readme"] = readme
+              else:
+                  print(f"  {pkg} README not found")
 
               with open(f"enrich/{pkg}.json", "w", encoding="utf-8") as f:
                   json.dump(out, f, ensure_ascii=False)
