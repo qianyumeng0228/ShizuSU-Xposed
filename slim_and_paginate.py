@@ -30,7 +30,7 @@ for mod in modules:
         else:
             mod['releases'] = []
     mod.pop('betaReleases', None)
-    mod.pop('readme', None)
+    # Keep readme field for offline fallback (App detail page uses it when realtime fetch fails)
 
 # Write slimmed modules.json
 with open('modules.json', 'w', encoding='utf-8') as f:
