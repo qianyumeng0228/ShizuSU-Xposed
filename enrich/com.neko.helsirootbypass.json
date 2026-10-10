@@ -1,0 +1,1 @@
+{"openIssues": 0, "changelog": [{"tagName": "1-1.0", "body": "Initial release"}], "contributors": ["Baiker000"], "readme": "# Helis Root Bypass\n\nВідключає перевірку root прав у додатку Helsi\n\nThis Xposed module bypasses root detection in the Helsi mobile application.\n\nHelsi 1.0.372+"}

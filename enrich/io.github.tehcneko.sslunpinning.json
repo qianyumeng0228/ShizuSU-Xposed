@@ -1,0 +1,1 @@
+{"openIssues": 3, "changelog": [{"tagName": "1-1.0.0", "body": "Initial release\r\n"}], "contributors": [], "readme": "# SSLUnpinning\nAndroid Xposed Module to bypass SSL certificate validation (Certificate Pinning).\n"}

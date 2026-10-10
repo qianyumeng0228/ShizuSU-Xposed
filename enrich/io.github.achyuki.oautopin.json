@@ -1,0 +1,1 @@
+{"openIssues": 0, "changelog": [{"tagName": "1-16", "body": ""}], "contributors": ["achyuki"], "readme": "# OAutoPIN\nColorOS 开机自动解锁 SIM 卡 PIN\n\n- 先在 app 内设定 PIN\n- 仅在 ColorOS16 经过测试，其余自测\n- 仅适配了单 SIM 卡或双卡单锁\n- 仅作为自用，无 bug 不更新"}

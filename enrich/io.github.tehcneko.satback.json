@@ -1,0 +1,1 @@
+{"openIssues": 0, "changelog": [{"tagName": "2-1.1.0", "body": "- 支持处理 WebView"}], "contributors": ["tehcneko"], "readme": "# 颜色回来\n不让应用变黑白\n\n----\n对绝大部分应用生效，生效但是推荐应用里没有的请点[这里](https://github.com/Xposed-Modules-Repo/io.github.tehcneko.satback/issues/new)反馈\n"}

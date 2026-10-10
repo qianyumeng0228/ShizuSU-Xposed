@@ -1,0 +1,1 @@
+{"openIssues": 0, "changelog": [{"tagName": "1-1", "body": "first version."}], "contributors": ["CwithW"], "readme": "# DisableAltTab\n\nA Xposed module to disable Alt-Tab hotkey for generic android devices.\n\nFor MIUI Android12+ devices, use [MiuiPadMeta](https://github.com/CwithW/MiuiPadMeta) instead which also disables MIUI Meta key hotkeys(eg. Win-A opens calculator)."}

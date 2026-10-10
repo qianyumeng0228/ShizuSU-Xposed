@@ -1,0 +1,1 @@
+{"openIssues": 3, "changelog": [{"tagName": "4-2.2", "body": ""}, {"tagName": "3-2.1", "body": "修复提高了传感器监听速度的问题"}, {"tagName": "2-2.0", "body": ""}], "contributors": ["w2016561536"], "readme": "# com.w2016.sensorfilter\n传感器滤镜\n\n降低传感器采样率（所有传感器降低到50HZ及以下）和采样深度(对加速度传感器取整)\n"}

@@ -1,0 +1,1 @@
+{"openIssues": 0, "changelog": [{"tagName": "1-1.0", "body": "实验手机：真我gt neo6se RealmeUI 6.0(15.0.0.420)  \r\n如果发生兼容性问题，请发issue，并带上手机型号\r\n"}], "contributors": ["w2016561536"], "readme": "# FuckRealmeOTG\n\n对真我手机开启常驻OTG功能，不会再10分钟关闭  \n测试手机：Realme GT Neo6SE，系统版本：RealmeUI 6.0（15.0.0.420）  \n如果存在兼容性问题，请在issue提出，并附带手机型号  \n"}

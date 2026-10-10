@@ -1,0 +1,1 @@
+{"openIssues": 0, "changelog": [{"tagName": "108-1.0.8", "body": "修复番茄免费小说自动阅读免广告"}, {"tagName": "107-1.0.7", "body": "简介：\r\nxposed模块，采用dexkit，解锁番茄免费小说，番茄畅听，番茄音乐，红果免费短剧vip，去除广告等\r\n\r\nv1.0.7更新说明：\r\n之前源码丢失，近期事情忙完了，所以对番茄通进行了重构，适配新版本。如果有异常，请及时反馈。"}], "contributors": ["AnLieHunShang"], "readme": "番茄通\nxposed模块，采用dexkit，解锁番茄免费小说，番茄畅听，番茄音乐，红果免费短剧vip，去除广告等\n"}

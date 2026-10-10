@@ -1,0 +1,1 @@
+{"openIssues": 0, "changelog": [{"tagName": "1-1.0", "body": ""}], "contributors": ["siowu"], "readme": "### RamInfoShow 版本：1.0\n\nColorOS 15 以上版本系统中为了避免焦虑，隐藏了最近任务中，剩余内存信息的显示，且无法开启\n\n\n## 主要功能\n\n1、强制开启ColorOS 15 以上系统最近任务中内存信息的显示\n\n## 使用教程\n1、设备上需要安装xposed环境，并激活本模块\n\n2、将作用域勾选为系统桌面(com.android.launcher)\n\n3、长按，将系统桌面强行停止即可\n\n\n## 联系\n有问题反馈，可以到酷安@西瓜味的奥利奥反馈"}

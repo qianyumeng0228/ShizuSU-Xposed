@@ -1,0 +1,1 @@
+{"openIssues": 0, "changelog": [{"tagName": "1-1.0", "body": "- 首个版本。"}], "contributors": ["JackuXL"], "readme": "# BoardDeepHook\n适用于「阳光自律」免费开启无限期会员的模块。\n\n安装模块后，（若使用 LSPosed 则需要启用「阳光自律」作用域），重新启动「阳光自律」即可使用。\n"}

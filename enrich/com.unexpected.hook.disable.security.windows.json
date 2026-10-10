@@ -1,0 +1,1 @@
+{"openIssues": 0, "changelog": [{"tagName": "2-2.0", "body": "- 修复了一些情况下不生效的问题"}, {"tagName": "1-1.0", "body": "- 禁用安全窗口\r\n- 禁用安全视图\r\n- 禁用触摸过滤，允许被遮挡时执行点击事件"}], "contributors": ["unexpecteds"], "readme": "# DisableSecurityWindows\nDisable Security Windows (禁用安全窗口)\n\n# 功能简介\n- 禁用安全窗口\n- 禁用安全视图\n- 禁用触摸过滤，允许被遮挡时执行点击事件\n"}

@@ -1,0 +1,1 @@
+{"openIssues": 1, "changelog": [{"tagName": "6-1.1.0", "body": "- fixed compatibility with more OS versions"}, {"tagName": "2-1.0.0", "body": "- init release"}], "contributors": ["tehcneko"], "readme": "# 原生软件包安装器\n在小米澎湃OS或 MIUI 上使用原生软件包安装器。\n![](https://github.com/user-attachments/assets/5f9668ab-a84b-4204-9500-79874a4a0b9f)\n"}

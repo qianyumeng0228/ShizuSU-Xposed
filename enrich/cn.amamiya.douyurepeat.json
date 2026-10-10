@@ -1,0 +1,1 @@
+{"openIssues": 0, "changelog": [{"tagName": "1-1.2.0", "body": ""}, {"tagName": "1-1.1.0", "body": "添加后缀"}, {"tagName": "v1.0.2", "body": "让+1按钮常显，无视直播间设置"}, {"tagName": "1-1.0.0", "body": ""}], "contributors": ["AmamiyaHotaru"], "readme": "# 斗鱼复读姬/DouyuRepeater\n一款lsposed/xposed插件，解除斗鱼直播间+1限制\n\n注意：请勿使用+1功能进行刷屏，被直播间封禁与我无关，另外不保证斗鱼APP在未来更新之后持续可用\n"}

@@ -1,0 +1,1 @@
+{"openIssues": 0, "changelog": [{"tagName": "2-1.1", "body": "Remove kotlin related things"}], "contributors": [], "readme": "# LDF - Let Develop Free\nBypass Xiaomi ADB install confirmation (which invokes com.miui.guardprovider) to make adb installation available with guardprovider disabled/hided.\n"}

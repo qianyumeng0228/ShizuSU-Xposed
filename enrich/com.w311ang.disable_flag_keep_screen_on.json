@@ -1,0 +1,1 @@
+{"openIssues": 1, "changelog": [{"tagName": "2-2.0.0", "body": ""}], "contributors": ["VarunS2002", "w311ang", "programminghoch10"], "readme": "# Disable-FLAG_KEEP_SCREEN_ON\n阻止应用常亮，按照系统屏幕超时时间息屏\n\n## 使用方法\n作用域选择需要阻止常亮的应用\n"}

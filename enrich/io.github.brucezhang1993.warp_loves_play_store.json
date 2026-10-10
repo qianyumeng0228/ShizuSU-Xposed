@@ -1,0 +1,1 @@
+{"openIssues": 0, "changelog": [{"tagName": "1-1.0", "body": "This xposed module forces Cloudflare 1.1.1.1 App to allow Play Store using WARP+ "}], "contributors": ["BruceZhang1993"], "readme": "# Warp Loves PlayStore\n\nThis xposed module forces Cloudflare 1.1.1.1 App to allow Play Store using WARP+ \n"}

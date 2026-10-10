@@ -1,0 +1,1 @@
+{"openIssues": 0, "changelog": [{"tagName": "1-0.0.1", "body": "已知问题\r\n\r\n- 登录失效\r\n- 状态栏不正常\r\n- `getUserInfo error, retry`反复重试可能增加耗电\r\n- 周数更新不正常"}], "contributors": ["duzhaokun123"], "readme": "# DarkAISchedule\n\n小爱课程表(`com.xiaomi.aischedule`)暗色支持\n\n仅测试于`1.1.0`版本\n"}

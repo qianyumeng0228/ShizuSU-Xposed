@@ -1,0 +1,1 @@
+{"openIssues": 1, "changelog": [{"tagName": "1-1.0.1", "body": ""}], "contributors": ["C10udburst"], "readme": "# MessengerEx\n\nAn Xposed module that improves the Facebook Messenger experience.\n\n## Features\n\n- Kill inbox ads\n- Replace their webbrowser with Chrome Custom Tabs\n"}

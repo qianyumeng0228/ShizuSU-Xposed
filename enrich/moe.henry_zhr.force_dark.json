@@ -1,0 +1,1 @@
+{"openIssues": 1, "changelog": [{"tagName": "2-2", "body": "Fix not working on Android 13"}, {"tagName": "1-1", "body": ""}], "contributors": ["Henry-ZHR"], "readme": "Override force-dark for apps in module scope  \n为作用域内应用强制启用 SmartDark\n\nAndroid 10+"}

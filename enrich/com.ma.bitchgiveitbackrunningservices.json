@@ -1,0 +1,1 @@
+{"openIssues": 0, "changelog": [{"tagName": "1-1.0", "body": "1. 新增 为MIUI开发者选项恢复 “正在运行的服务”"}], "contributors": ["sbmatch"], "readme": "### 简介\n这是一个Xposed模块, 旨在为MIUI设备的开发者选项中恢复被阉割的设置项入口“正在运行的服务”\n## 版本支持\n仅支持 MIUI/Hyper 系统\n## 开发者\n[CoolApk@sbmatch](coolmarket://www.coolapk.com/u/962507)\n"}

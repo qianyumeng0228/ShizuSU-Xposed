@@ -1,0 +1,1 @@
+{"openIssues": 0, "changelog": [{"tagName": "3-1.2", "body": "Add support for android 9 & 11 (Thanks to @F-i-f)\r\nAdd support for LSPosed (Thanks to @F-i-f)"}], "contributors": ["Noisyfox"], "readme": "# OPLongshotXposed\nA Xposed module for OPLongshot, forces saving screenshot in PNG format.\n\n将一加氧OS截图格式改回PNG。\n"}
