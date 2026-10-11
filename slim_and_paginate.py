@@ -1,4 +1,4 @@
-import json, gzip, os
+import json, gzip, os, glob
 
 # Read current modules.json
 with open('modules.json', 'r', encoding='utf-8-sig') as f:
@@ -31,6 +31,36 @@ for mod in modules:
             mod['releases'] = []
     mod.pop('betaReleases', None)
     # Keep readme field for offline fallback (App detail page uses it when realtime fetch fails)
+
+# Override latestReleaseTime + latestRelease with enrich data (published_at, correct latest)
+enrich_dir = 'enrich'
+if os.path.isdir(enrich_dir):
+    overridden = 0
+    for mod in modules:
+        pkg = mod.get('name', '')
+        if not pkg:
+            continue
+        enrich_path = os.path.join(enrich_dir, f'{pkg}.json')
+        if not os.path.exists(enrich_path):
+            continue
+        try:
+            with open(enrich_path, 'r', encoding='utf-8') as f:
+                edata = json.load(f)
+            changelog = edata.get('changelog', [])
+            if changelog:
+                # changelog[0] = latest release (GitHub API returns newest first)
+                latest = changelog[0]
+                published_at = latest.get('createdAt', '')  # now stores published_at
+                tag = latest.get('tagName', '')
+                if published_at:
+                    mod['latestReleaseTime'] = published_at
+                    mod['latestReleaseTimeStr'] = published_at
+                if tag:
+                    mod['latestRelease'] = tag
+                overridden += 1
+        except Exception as e:
+            print(f'  enrich override {pkg} FAIL: {e}')
+    print(f'Enrich overrides applied: {overridden} modules')
 
 # Write slimmed modules.json
 with open('modules.json', 'w', encoding='utf-8') as f:
