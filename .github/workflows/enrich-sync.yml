@@ -25,7 +25,7 @@ jobs:
         run: |
           mkdir -p enrich
           python3 << 'PYEOF'
-          import json, os, time, requests
+          import json, os, time, requests, urllib.parse
 
           token = os.environ["GITHUB_TOKEN"]
           headers = {"Authorization": f"token {token}", "User-Agent": "ShizuSU-Enrich"}
@@ -101,10 +101,30 @@ jobs:
                       pass
               if readme:
                   out["readme"] = readme
-                  # readmeZh: prefer Chinese readme if available (same as readme for now,
-                  # since Google Translate endpoint is unreachable from CI).
-                  # Most Chinese modules already have Chinese READMEs.
-                  out["readmeZh"] = readme
+                  # Check if README already has CJK characters (Chinese/Japanese/Korean)
+                  has_cjk = any('\u4e00' <= c <= '\u9fff' for c in readme)
+                  if has_cjk:
+                      # Already Chinese, use as-is
+                      out["readmeZh"] = readme
+                  else:
+                      # English README — translate to Chinese via Google Translate gtx
+                      try:
+                          # Split into chunks of 4000 chars (gtx limit)
+                          chunks = [readme[i:i+4000] for i in range(0, len(readme), 4000)]
+                          translated_chunks = []
+                          for chunk in chunks:
+                              url = f"https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=zh-CN&dt=t&q={urllib.parse.quote(chunk)}"
+                              r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
+                              if r.ok:
+                                  data = r.json()
+                                  translated = "".join(seg[0] for seg in data[0])
+                                  translated_chunks.append(translated)
+                              time.sleep(0.5)  # Rate limit
+                          out["readmeZh"] = "".join(translated_chunks)
+                          print(f"  {pkg} translated to Chinese ({len(readme)} -> {len(out['readmeZh'])} chars)")
+                      except Exception as e:
+                          print(f"  {pkg} translation FAIL: {e}")
+                          out["readmeZh"] = readme  # Fallback to English
               else:
                   print(f"  {pkg} README not found")
 
