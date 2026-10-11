@@ -101,6 +101,10 @@ jobs:
                       pass
               if readme:
                   out["readme"] = readme
+                  # readmeZh: prefer Chinese readme if available (same as readme for now,
+                  # since Google Translate endpoint is unreachable from CI).
+                  # Most Chinese modules already have Chinese READMEs.
+                  out["readmeZh"] = readme
               else:
                   print(f"  {pkg} README not found")
 
