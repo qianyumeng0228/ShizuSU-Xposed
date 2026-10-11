@@ -58,7 +58,7 @@ jobs:
                           entry = {
                               "tagName": rel.get("tag_name", ""),
                               "name": rel.get("name", ""),
-                              "createdAt": rel.get("created_at", ""),
+                              "createdAt": rel.get("published_at", rel.get("created_at", "")),
                               "body": rel.get("body", ""),
                           }
                           # Extract first APK asset
